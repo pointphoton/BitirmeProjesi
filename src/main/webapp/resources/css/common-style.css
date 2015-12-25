@@ -1,0 +1,40 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Nov 5, 2015, 12:51:50 AM
+    Author     : Photon
+*/
+
+#header {
+	border-width: 2px;
+	border-color: red;
+	border-style: solid;
+	-moz-box-shadow: -5px -5px #888;
+	-webkit-box-shadow: -5px -5px #888;
+	box-shadow: -5px -5px #888;
+}
+
+#content {
+	border-width: 2px;
+	border-color: threedshadow;
+	border-style: solid;
+	-webkit-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px
+		rgba(0, 0, 0, 0.1) inset;
+	-moz-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px
+		rgba(0, 0, 0, 0.1) inset;
+	box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1)
+		inset;
+}
+
+#footer {
+	border-width: 2px;
+	border-color: red;
+	border-style: solid;
+	-webkit-box-shadow: 0 7px 4px #777;
+	-moz-box-shadow: 0 7px 4px #777;
+	box-shadow: 0 7px 4px #777;
+        background-color: rosybrown;
+}

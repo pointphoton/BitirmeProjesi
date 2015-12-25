@@ -1,0 +1,95 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      
+      >
+
+  <body>
+
+    <ui:composition template="./templates/main.xhtml">
+
+      <ui:define name="content">
+          <h:form id="form">
+    <p:growl id="msgs" showDetail="true" />
+        
+            <p:dataTable var="product" value="#{table.lazyDataModel}" paginator="true" rows="10" editable="true" rowKey="product.productId"
+                 paginatorTemplate="{RowsPerPageDropdown} {FirstPageLink} {PreviousPageLink} {CurrentPageReport} {NextPageLink} {LastPageLink}"
+                 rowsPerPageTemplate="5,10,15,25" selectionMode="single" selection="#{table.selectedProduct}" id="productTable" lazy="true" >
+           <f:facet name="header">
+            Product Data Table
+        </f:facet>
+           
+             <p:ajax event="rowEdit" listener="#{table.onRowEdit}" update=":form:msgs" />
+       <p:ajax event="rowEditCancel" listener="#{table.onRowCancel}" update=":form:msgs" />
+    
+     
+        <p:column headerText="Id" sortBy="#{product.productId}" filterBy="#{product.productId}" style="width:10%">
+            <h:outputText value="#{product.productId}" />
+        </p:column>
+       <p:column headerText="Active" sortBy="#{product.isActive}" filterBy="#{product.isActive}" style="width:14%">
+            <p:cellEditor>
+              <f:facet name="output">     <h:outputText value="#{product.isActive}" /></f:facet>
+             <f:facet name="input">
+               <h:selectOneMenu value="#{product.isActive}" style="width:100px;color: #E53B51" >
+            <f:selectItem itemLabel="Active" itemValue="Y" />
+            <f:selectItem itemLabel="InActive" itemValue="N" />
+                 </h:selectOneMenu>
+             
+             </f:facet>
+            </p:cellEditor>
+        </p:column>
+        <p:column headerText="Name" sortBy="#{product.name}" filterBy="#{product.name}" style="width:22%" >
+             <p:cellEditor>
+               <f:facet name="output"><h:outputText value="#{product.name}" /></f:facet>
+               <f:facet name="input"><p:inputText value="#{product.name}" style="width:100%;color: #396A92" /></f:facet>
+             </p:cellEditor>
+        </p:column>
+      
+        <p:column headerText="Description" sortBy="#{product.proDescription}" filterBy="#{product.proDescription}" style="width:27%">
+             <p:cellEditor>
+          <f:facet name="output"> <h:outputText value="#{product.proDescription}" /></f:facet>
+            <f:facet name="input"><p:inputText value="#{product.proDescription}" style="width:100%;color: #396A92" /></f:facet>
+              </p:cellEditor>
+        </p:column>
+       
+       <p:column headerText="Category" style="width:20%">
+         <p:cellEditor>
+           <f:facet name="output">
+             <h:outputText value="#{product.category.categoryName}" />
+           </f:facet>
+               
+           <f:facet name="input">
+             <h:selectOneMenu value="#{product.category}" converter="#{categoryConverter}" style="width:100%;color: #018E4A">
+                  <f:selectItems value="#{proCont.categoryList}" var="cat"  itemValue="#{cat}" itemLabel="#{cat.categoryName}"  />
+              </h:selectOneMenu>
+           </f:facet>
+         </p:cellEditor>
+       </p:column>
+     
+      
+       
+           <p:column headerText="Price" sortBy="#{product.currentPrice}" filterBy="#{product.currentPrice}" style="text-align: right;width:18%">
+          <p:cellEditor>
+               <f:facet name="output"><h:outputText value="#{product.currentPrice}" ><f:convertNumber locale="tr_TR" type="currency" /> 
+            </h:outputText></f:facet>
+               <f:facet name="input"><p:inputText value="#{product.currentPrice}" style="width:100%;color: #396A92" /></f:facet>
+           </p:cellEditor>
+         </p:column>
+        
+        <p:column headerText="Edit"  style="width:7%" >
+           <p:rowEditor />
+       </p:column>
+       
+       
+    </p:dataTable>
+        </h:form>
+      </ui:define>
+
+    </ui:composition>
+
+  </body>
+</html>

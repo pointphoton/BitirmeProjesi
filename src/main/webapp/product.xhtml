@@ -1,0 +1,53 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+
+      >
+
+  <body>
+
+    <ui:composition template="./templates/main.xhtml">
+
+      <ui:define name="content">
+        <h:form>
+          <p:fieldset legend="Add Product" >
+            <p:panelGrid columns="2"  id="panelGridPro">
+                <p:outputLabel value="Product Name :"/>
+                <p:inputText  value="#{proCont.product.name}" />
+                  <p:outputLabel value="Product Desc. :"/>
+                  <p:inputText  value="#{proCont.product.proDescription}"     ></p:inputText>
+                   
+                  <p:outputLabel value="Current Price :"/>
+                  <p:inputText  value="#{proCont.product.currentPrice}"     ></p:inputText>
+                  
+                  <p:outputLabel value="Product Is Active :"/>                  
+                  <p:selectOneRadio value="#{proCont.product.isActive}" >
+                      <f:selectItem itemLabel="Active" itemValue="Y" />
+                         <f:selectItem itemLabel="Inactive" itemValue="N" />
+                  </p:selectOneRadio>
+           
+              <p:outputLabel value="Select Category :"/>
+              <h:selectOneMenu value="#{proCont.proCategory}" converter="#{categoryConverter}">
+                  <f:selectItems value="#{proCont.categoryList}" var="cat"  itemValue="#{cat}" itemLabel="#{cat.categoryName}"  />
+              </h:selectOneMenu>
+               
+                 <p:outputLabel value=""/>
+                 <h:commandButton value="AddPro" actionListener="#{proCont.addProduct()}"  >
+              
+                 </h:commandButton>
+              
+            </p:panelGrid>
+              <p:separator />
+                 <p:commandButton value="Add 25 Products" actionListener="#{proCont.add25Products()}" class="catAdd" />
+          </p:fieldset>
+        </h:form>
+      </ui:define>
+
+    </ui:composition>
+
+  </body>
+</html>

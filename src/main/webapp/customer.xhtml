@@ -1,0 +1,39 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      
+      >
+
+  <body>
+
+    <ui:composition template="./templates/main.xhtml">
+
+      <ui:define name="content">
+          <h:form>
+            <p:fieldset legend="Add Customer" >
+                <h:panelGrid columns="2">
+                  <p:outputLabel value="Customer Name :" class="catAdd" />
+                  <p:inputText value="#{custCont.customer.name}"  class="catAdd"/>
+                     <p:outputLabel value="Customer Surname :"  class="catAdd"/>
+                     <p:inputText value="#{custCont.customer.surname}" class="catAdd"/>
+                  <p:outputLabel value="" class="catAdd"></p:outputLabel>
+                  <p:commandButton value="Add" actionListener="#{custCont.addCustomer()}" class="catAdd">
+
+                  </p:commandButton>
+                 
+              </h:panelGrid>
+              
+            
+                
+            </p:fieldset>
+        </h:form>
+      </ui:define>
+
+    </ui:composition>
+
+  </body>
+</html>
