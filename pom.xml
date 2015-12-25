@@ -2,9 +2,9 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>org.photon</groupId>
+ <groupId>org.photon</groupId>
     <artifactId>BitirmeProjesi</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <version>1.1-SNAPSHOT</version>
     <packaging>war</packaging>
 
     <name>BitirmeProjesi</name>
@@ -25,7 +25,7 @@
         <!-- (Aug, 2015)-->
     
            <!--     <hibernate.version>4.3.11.Final</hibernate.version>  --> 
-   <hibernate.version>5.0.5.Final</hibernate.version> 
+   <hibernate.version>5.0.6.Final</hibernate.version> 
         <!--Jan, 2011-->    
          <commons-lang.version>2.6</commons-lang.version>        
         <!-- (Mar, 2015) --><!--test ,3.3 has some problems. -->
@@ -109,12 +109,12 @@
         <dependency>
             <groupId>org.hibernate</groupId>
             <artifactId>hibernate-entitymanager</artifactId>
-            <version>4.3.1.Final</version>
+            <version>${hibernate.version}</version>
         </dependency>
         <dependency>
             <groupId>org.hibernate</groupId>
             <artifactId>hibernate-jpamodelgen</artifactId>
-            <version>4.3.1.Final</version>
+            <version>${hibernate.version}</version>
             <scope>provided</scope>
         </dependency>
              <dependency>

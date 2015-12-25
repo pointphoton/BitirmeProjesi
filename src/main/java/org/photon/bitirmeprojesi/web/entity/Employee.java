@@ -20,7 +20,7 @@ import javax.persistence.TemporalType;
 import org.hibernate.annotations.SQLDelete;
 
 @Entity
-@SQLDelete(sql = "UPDATE testfd.employee SET is_active = N WHERE employee_id = ?")
+//@SQLDelete(sql = "UPDATE testfd.employee SET is_active = N WHERE employee_id = ?")
 public class Employee implements Serializable {
 
     @Id

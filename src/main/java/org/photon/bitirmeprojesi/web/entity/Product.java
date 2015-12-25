@@ -24,7 +24,7 @@ import org.hibernate.annotations.SQLDelete;
 
 @Entity
 @Table(name = "OurProduct")
-@SQLDelete(sql = "UPDATE testfd.ourproduct SET is_active = 'N' WHERE product_id = ?")
+//@SQLDelete(sql = "UPDATE testfd.ourproduct SET is_active = 'N' WHERE product_id = ?")
 public class Product implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "productSeq")
