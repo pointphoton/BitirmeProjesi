@@ -1,0 +1,91 @@
+<?xml version='1.0' encoding='UTF-8' ?> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      
+      >
+
+  <body>
+<ui:composition template="./templates/welcome.xhtml">
+	
+	<ui:define name="title"><h:outputText value="Please Sign Up" /></ui:define>
+	<ui:define name="header"><h:outputText value="Please Sign Up" /></ui:define>
+	
+	<ui:define name="content">
+		<h:form id="signUpForm">
+			<p:fieldset styleClass="fieldset" legend="Registration Form">
+				<p:focus />
+				<p:messages id="messages" globalOnly="true" />
+			
+				<h:panelGrid id="regPanelGrid" style="margin: 0 auto; margin-top: 25px; text-align: right" cellspacing="8" columns="3">
+
+					<h:panelGroup>
+						<h:outputText value="First Name:" />
+						<h:outputText style="color:red" value="*  " />
+					</h:panelGroup>
+					<p:inputText id="firstName" label="First Name" value="#{user.name}" required="true" title="Enter your First Name!">
+						<f:validateLength minimum="2" />
+						<p:ajax event="keyup" update="firstNameMsg" global="false"/>
+					</p:inputText>
+					<h:panelGroup>
+						<p:message id="firstNameMsg" for="firstName" />
+						<p:tooltip for="firstName" styleClass="tooltip" showEvent="focus" hideEvent="blur" />
+					</h:panelGroup>
+					
+					<h:panelGroup>
+						<h:outputText value="Email:" />
+						<h:outputText style="color:red" value="*  " />
+					</h:panelGroup>
+					<p:inputText id="email" label="Email" value="#{user.email}" required="true" title="Enter your Email!">
+						<f:validateLength minimum="5" />
+						<p:ajax event="keyup" update="emailMsg" global="false"/>
+					</p:inputText>
+					<h:panelGroup>
+						<p:message id="emailMsg" for="email" />
+						<p:tooltip for="email" styleClass="tooltip" showEvent="focus" hideEvent="blur" />
+					</h:panelGroup>
+					
+					<h:panelGroup>
+						<h:outputText value="User Name:" />
+						<h:outputText style="color:red" value="*  " />
+					</h:panelGroup>
+					<p:inputText id="userName" value="#{user.userName}" required="true" label="User Name" title="Enter your User Name!">
+						<f:validateLength minimum="2" />
+						<p:ajax event="keyup" update="userNameMsg" global="false" listener="#{userCont.checkAvailable}"/>
+					</p:inputText>
+					<h:panelGroup>
+						<p:message id="userNameMsg" for="userName" />
+						<p:tooltip for="userName" styleClass="tooltip" showEvent="focus" hideEvent="blur" />
+					</h:panelGroup>
+					
+					<h:panelGroup>
+						<h:outputText value="Enter Password:" />
+						<h:outputText style="color:red" value="*  " />
+					</h:panelGroup>
+					<p:password id="pass1" value="#{user.password}" required="true" label="Password" title="Please enter a password!" feedback="true" match="pass2">
+						<f:validateLength minimum="2" />
+					</p:password>
+					<p:message id="pass1Msg" for="pass1" />
+					
+					<h:panelGroup>
+						<h:outputText value="Repeat Password:" />
+						<h:outputText style="color:red" value="*  " />
+					</h:panelGroup>
+					<p:password id="pass2" required="true" label="Password" title="Please enter a password!" />
+					<p:message id="pass2Msg" for="pass2" />
+					
+					<p:commandButton id="backToDefault" action="default" immediate="true" icon="ui-icon-arrowreturnthick-1-w" value="Back to Menu" />
+					<p:commandButton id="submitButton" action="confirmSignUp" update="regPanelGrid,messages" icon="ui-icon-check" value="Sign Up" />
+					
+				</h:panelGrid>
+			</p:fieldset>
+		</h:form>
+	</ui:define>
+	
+</ui:composition>
+    
+  </body>
+</html>

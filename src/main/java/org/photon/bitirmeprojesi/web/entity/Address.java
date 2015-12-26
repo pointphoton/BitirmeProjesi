@@ -14,8 +14,11 @@ import javax.persistence.JoinTable;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
 
 @Entity
+@XmlRootElement
 public class Address implements Serializable {
 
     @Id
@@ -93,6 +96,7 @@ public class Address implements Serializable {
         this.addresstext = addresstext;
     }
 
+    @XmlTransient
     public Set<Order> getOrders() {
         return orders;
     }

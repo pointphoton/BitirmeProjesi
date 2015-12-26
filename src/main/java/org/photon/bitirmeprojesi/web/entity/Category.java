@@ -22,10 +22,13 @@ import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
 
 
 
 @Entity 
+@XmlRootElement
 public class Category implements Serializable  {
 
     @Id
@@ -82,6 +85,7 @@ public class Category implements Serializable  {
         this.description = description;
     }
 
+    @XmlTransient
     public Set<Product> getProducts() {
         return products;
     }

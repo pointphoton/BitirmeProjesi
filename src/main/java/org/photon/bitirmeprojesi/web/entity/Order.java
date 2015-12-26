@@ -24,17 +24,20 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.DecimalMin;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
 import org.photon.bitirmeprojesi.web.entity.util.PaymentStatus;
 import org.photon.bitirmeprojesi.web.entity.util.PaymentType;
 
 @Entity
-@Table(name = "orders", schema = "testfd")
+@Table(name = "orders", schema = "bproje")
+@XmlRootElement
 public class Order implements Serializable  {
 
  
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "orderSeq")
-    @SequenceGenerator(schema = "testfd",name = "orderSeq", sequenceName = "ORDER_SEQ", initialValue = 1,allocationSize = 1)
+    @SequenceGenerator(schema = "bproje",name = "orderSeq", sequenceName = "ORDER_SEQ", initialValue = 1,allocationSize = 1)
     @Column(name = "order_id", unique = true, nullable = false)
     private Long orderId;
     @ManyToOne(fetch = FetchType.LAZY, targetEntity = Customer.class)
@@ -165,6 +168,7 @@ public class Order implements Serializable  {
     }
 
 
+    @XmlTransient
     public Set<OrderDetail> getOrderDetails() {
         return orderDetails;
     }

@@ -14,9 +14,12 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
 import org.hibernate.annotations.SQLDelete;
 
 @Entity
+@XmlRootElement
 public class EmployeeDelivery implements Serializable {
 
     @Id
@@ -59,6 +62,7 @@ public class EmployeeDelivery implements Serializable {
         this.employee = employee;
     }
 
+    @XmlTransient
     public Set<OrderDetail> getOrderDetails() {
         return orderDetails;
     }

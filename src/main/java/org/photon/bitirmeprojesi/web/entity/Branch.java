@@ -12,8 +12,10 @@ import javax.persistence.SequenceGenerator;
 
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.xml.bind.annotation.XmlRootElement;
 
 @Entity
+@XmlRootElement
 public class Branch implements Serializable {
 
     @Id

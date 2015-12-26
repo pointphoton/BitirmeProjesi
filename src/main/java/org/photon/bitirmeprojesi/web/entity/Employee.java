@@ -17,10 +17,13 @@ import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
 import org.hibernate.annotations.SQLDelete;
 
 @Entity
 //@SQLDelete(sql = "UPDATE testfd.employee SET is_active = N WHERE employee_id = ?")
+@XmlRootElement
 public class Employee implements Serializable {
 
     @Id
@@ -115,6 +118,7 @@ public class Employee implements Serializable {
         this.isDelivering = isDelivering;
     }
 
+    @XmlTransient
     public Set<EmployeeDelivery> getEmployeeDeliveries() {
         return employeeDeliveries;
     }

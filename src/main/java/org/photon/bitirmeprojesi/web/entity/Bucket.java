@@ -16,8 +16,11 @@ import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 import javax.validation.constraints.DecimalMin;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
 
 @Entity
+@XmlRootElement
 public class Bucket implements Serializable {
 
     @Id
@@ -81,6 +84,7 @@ public class Bucket implements Serializable {
         this.currentVersion = currentVersion;
     }
 
+    @XmlTransient
     public Set<OrderDetail> getOrderDetails() {
         return orderDetails;
     }
@@ -89,6 +93,7 @@ public class Bucket implements Serializable {
         this.orderDetails = orderDetails;
     }
 
+    @XmlTransient
     public Set<Product> getProducts() {
         return products;
     }

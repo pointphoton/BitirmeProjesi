@@ -18,10 +18,13 @@ import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
 import org.hibernate.annotations.SQLDelete;
 
 @Entity
 //@SQLDelete(sql = "UPDATE testfd.customer SET is_active = N WHERE customer_id = ?")
+@XmlRootElement
 public class Customer implements  Serializable {
 
     @Id
@@ -140,6 +143,7 @@ public class Customer implements  Serializable {
         this.password = password;
     }
 
+    @XmlTransient
     public Set<Order> getOrders() {
         return orders;
     }
@@ -148,6 +152,7 @@ public class Customer implements  Serializable {
         this.orders = orders;
     }
 
+    @XmlTransient
     public Set<Address> getAddresses() {
         return addresses;
     }

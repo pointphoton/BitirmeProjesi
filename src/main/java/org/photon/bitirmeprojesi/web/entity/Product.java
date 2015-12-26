@@ -20,11 +20,14 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
 import org.hibernate.annotations.SQLDelete;
 
 @Entity
 @Table(name = "OurProduct")
 //@SQLDelete(sql = "UPDATE testfd.ourproduct SET is_active = 'N' WHERE product_id = ?")
+@XmlRootElement
 public class Product implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "productSeq")
@@ -139,6 +142,7 @@ public class Product implements Serializable {
         this.bucket = bucket;
     }
 
+    @XmlTransient
     public Set<ProductHistory> getProductHistorySet() {
         return productHistorySet;
     }
@@ -147,6 +151,7 @@ public class Product implements Serializable {
         this.productHistorySet = productHistorySet;
     }
 
+    @XmlTransient
     public Set<OrderDetail> getOrderDetails() {
         return orderDetails;
     }
