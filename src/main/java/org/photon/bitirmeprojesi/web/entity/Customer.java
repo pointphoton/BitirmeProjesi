@@ -36,6 +36,10 @@ public class Customer implements  Serializable {
     private String name;
      @Column(name = "surname", length = 45)
     private String surname;
+       @Column(name = "tel_mobile", length = 45)
+    private String mobilePhone;
+           @Column(name = "home_mobile", length = 45)
+    private String homePhone;
       @Column(name = "gender" , length = 1)
     private String gender;
     @Temporal(TemporalType.DATE)
@@ -57,21 +61,7 @@ public class Customer implements  Serializable {
     public Customer() {
     }
 
-    public Customer(Long customerId, String name, String surname, String gender, Date birthdate, String email, String isActive, String userName, String password, Set<Order> orders, Set<Address> addresses) {
-        this.customerId = customerId;
-        this.name = name;
-        this.surname = surname;
-        this.gender = gender;
-        this.birthdate = birthdate;
-        this.email = email;
-        this.isActive = isActive;
-        this.userName = userName;
-        this.password = password;
-        this.orders = orders;
-        this.addresses = addresses;
-    }
-
-    public Long getCustomerId() {
+      public Long getCustomerId() {
         return customerId;
     }
 
@@ -117,6 +107,22 @@ public class Customer implements  Serializable {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public String getMobilePhone() {
+        return mobilePhone;
+    }
+
+    public void setMobilePhone(String mobilePhone) {
+        this.mobilePhone = mobilePhone;
+    }
+
+    public String getHomePhone() {
+        return homePhone;
+    }
+
+    public void setHomePhone(String homePhone) {
+        this.homePhone = homePhone;
     }
 
     public String getIsActive() {

@@ -3,7 +3,7 @@
 	min-height: 450px;
 	margin: 50px auto;
 	box-shadow: 2px 2px 10px #888;
-	background: url(images/textureL.png) repeat-x;
+	background: url(images/textureW.png);
 	padding-bottom: 70px;
 	font-family: Verdana;
 	font-size: 12px;
@@ -113,6 +113,9 @@
 	right: 40px;
 }
 
+.btn1{
+    margin: 10px;
+}
 
 
 

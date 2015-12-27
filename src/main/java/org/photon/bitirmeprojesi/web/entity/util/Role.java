@@ -5,7 +5,22 @@
  */
 package org.photon.bitirmeprojesi.web.entity.util;
 
+
 public enum Role {
     
-       ADMIN ,MODERATOR ,OPERATOR, DEVELOPER , TESTER ;
+       ADMIN("admin") ,MODERATOR("moderator") ,OPERATOR("operator"), DEVELOPER("developer") , TESTER("tester"),USER("user") ;
+
+       private String value ;
+       
+       private Role(String value)
+       {this.value = value;
+       }
+   
+    public String getValue() {
+    return this.value ;
+    }
+       
+       
 }
+
+	

@@ -1,0 +1,84 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html  xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      >
+ <h:head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<title>Food Delivery Bitirme Projesi </title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"></link>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css"></link>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js" type="text/javascript"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js" type="text/javascript"></script>
+<style type="text/css">
+    body{
+        padding-top: 70px;
+    }
+</style>
+</h:head>
+<body>
+<nav role="navigation" class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <span style="color:#DF2526;font-size: 40px;font-weight: bold;text-shadow: 1px solid black;">Food Delivery </span>
+        </div>
+        <!-- Collection of nav links and other content for toggling -->
+        <div id="navbarCollapse" class="collapse navbar-collapse">
+            
+            <ul class="nav navbar-nav navbar-right">
+              <li><span style="color:#018E4A;font:normal small-caps 120%/120% fantasy;margin-right: 25px;padding-top: 25px">Welcome #{userCont.registeredUser.name}</span></li>
+                <li style="background-color:#d4d4d4 "><a href="default.xhtml">Log Out</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div class="container" style="text-align: center">
+   <h:form>
+            <p:fieldset legend="Customer Info" >
+                <h:panelGrid columns="2">
+                  <p:outputLabel value="Name : " class="catAdd" /><p:inputText value="#{userCont.custo.name}"  class="catAdd"/>
+                  <p:outputLabel value="Surname. : "  class="catAdd"/><p:inputText value="#{userCont.custo.surname}" class="catAdd"/>
+                  <p:outputLabel value="Email : " class="catAdd" /><p:inputText value="#{userCont.custo.email}"  class="catAdd"/>
+                     <p:outputLabel value="User Name : "  class="catAdd"/><p:inputText value="#{userCont.custo.userName}" class="catAdd"/>                
+                </h:panelGrid>
+                     <p:separator />
+                     
+                    <h:panelGrid columns="2" >
+                    <p:outputLabel value=" " class="catAdd" /><h3>Address 1</h3>
+                  <p:outputLabel value="Country : " class="catAdd" /><p:inputText value="#{userCont.address1.country}"  class="catAdd"/>
+                     <p:outputLabel value="Ditrict. : "  class="catAdd"/><p:inputText value="#{userCont.address1.district}" class="catAdd"/>
+                   <p:outputLabel value="City : " class="catAdd" /><p:inputText value="#{userCont.address1.city}"  class="catAdd"/>
+                     <p:outputLabel value="Address. : "  class="catAdd"/>
+                     <p:inputTextarea class="catAdd" rows="2" cols="50"  maxlength="250" autoResize="false"  value="#{userCont.address1.addresstext}"/>
+                     </h:panelGrid>
+                 
+                     <p:separator />
+                     
+                  <h:panelGrid columns="2" >
+                    <p:outputLabel value=" " class="catAdd" /><h3>Address 2</h3>
+                  <p:outputLabel value="Country : " class="catAdd" /><p:inputText value="#{userCont.address2.country}"  class="catAdd"/>
+                     <p:outputLabel value="Ditrict. : "  class="catAdd"/><p:inputText value="#{userCont.address2.district}" class="catAdd"/>
+                   <p:outputLabel value="City : " class="catAdd" /><p:inputText value="#{userCont.address2.city}"  class="catAdd"/>
+                     <p:outputLabel value="Address. : "  class="catAdd"/>
+                     <p:inputTextarea class="catAdd" rows="2" cols="50"  maxlength="250" autoResize="false"  value="#{userCont.address2.addresstext}"/>
+                     </h:panelGrid>
+                             
+                  <p:outputLabel value=" " class="catAdd"></p:outputLabel>
+                       
+                      <p:commandButton value="Update Customer Info " actionListener="#{userCont.updateCustInfo}" class="catAdd">
+
+                  </p:commandButton>
+                 
+              
+                          
+                
+            </p:fieldset>
+        </h:form>
+    </div>
+</body>
+</html>    

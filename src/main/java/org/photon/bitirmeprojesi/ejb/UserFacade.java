@@ -5,6 +5,7 @@
  */
 package org.photon.bitirmeprojesi.ejb;
 
+import java.math.BigDecimal;
 import javax.ejb.Stateless;
 import javax.faces.application.FacesMessage;
 import javax.faces.event.AjaxBehaviorEvent;
@@ -31,12 +32,16 @@ public class UserFacade extends AbstractFacade<User> implements UserFacadeLocal 
 
     @Override
     public boolean checkAvailable(String userName) {
-                if (userName == null) {
+        
+        if (userName == null) {
+               System.out.println("username in ejb null");
             return false;
+            
         }
-        Query query = em.createQuery("select count(*) from user u where u.userName = :userName").setParameter("userName", userName);
-
-        Long count = (Long) query.getSingleResult();
+           System.out.println("username in ejb "+userName);    
+    //    Query query = em.createNativeQuery("select count(*) from ouruser u where u.username = :userName").setParameter("userName", userName);
+         Query query = em.createQuery("select count(*) from user u where u.username = :userName").setParameter("userName", userName);
+        Long count= (( BigDecimal) query.getSingleResult()).longValue();
         return count < 1;
        
     }

@@ -25,7 +25,7 @@ import javax.xml.bind.annotation.XmlTransient;
 import org.hibernate.annotations.SQLDelete;
 
 @Entity
-@Table(name = "OurProduct")
+@Table(name = "ourproduct")
 //@SQLDelete(sql = "UPDATE testfd.ourproduct SET is_active = 'N' WHERE product_id = ?")
 @XmlRootElement
 public class Product implements Serializable {

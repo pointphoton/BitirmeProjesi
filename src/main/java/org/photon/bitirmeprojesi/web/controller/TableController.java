@@ -38,7 +38,7 @@ public class TableController implements Serializable {
 
     @EJB(beanName = "ProductEJB")
     private ProductFacadeLocal productEJB;
-    @EJB(beanName = "")
+    @EJB(beanName = "SessionEJB")
     private SessionFacadeLocal sessionEJB ;
       @EJB(beanName = "CategoryEJB")
    private CategoryFacadeLocal categoryEJB;
